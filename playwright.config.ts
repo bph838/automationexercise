@@ -1,5 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const ONE_SECOND = 1000;
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -27,10 +28,16 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
+    baseURL: "https://automationexercise.com/",
+
     headless: !!process.env.CI,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on-first-retry",
+    trace: "retain-on-failure",
+    //trace: "on-first-retry",
+    actionTimeout: 15 * ONE_SECOND, // 15 seconds
+    // Timeout for navigation events
+    navigationTimeout: 30 * ONE_SECOND, // 30 seconds
+    testIdAttribute: "data-qa",
   },
 
   /* Configure projects for major browsers */
@@ -39,7 +46,7 @@ export default defineConfig({
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
     },
-/*
+    /*
     {
       name: "firefox",
       use: { ...devices["Desktop Firefox"] },
