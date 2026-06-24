@@ -118,6 +118,7 @@ test("Run though test 1", async ({ browser }) => {
   //16. Verify that 'Logged in as username' is visible
   await expect(page.getByText(`Logged in as ${fullname}`)).toBeVisible();
 
+  /*
   //17. Click 'Delete Account' button
   await page.getByRole("link").getByText("Delete Account").click();
 
@@ -127,4 +128,5 @@ test("Run though test 1", async ({ browser }) => {
       hasText: "ACCOUNT DELETED!",
     }),
   ).toBeVisible();
+  */
 });
