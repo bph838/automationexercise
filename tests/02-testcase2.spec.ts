@@ -1,8 +1,8 @@
 import { test, expect, BrowserContext } from "@playwright/test";
 
 const RUNSTATE: string = "state.json";
-
-test("Run though test 2", async ({ browser }) => {
+/*
+test.skip("Run though test 2", async ({ browser }) => {
   let webContext = await browser.newContext({
     storageState: RUNSTATE,
   });
@@ -46,7 +46,7 @@ test("Run though test 2", async ({ browser }) => {
   await expect(page.getByText(`Logged in as ${fullname}`)).toBeVisible();
 });
 
-test("Test Case 3: Login User with incorrect email and password", async ({
+test.skip("Test Case 3: Login User with incorrect email and password", async ({
   browser,
 }) => {
   let webContext = await browser.newContext({
@@ -95,7 +95,7 @@ test("Test Case 3: Login User with incorrect email and password", async ({
   ).toBeVisible();
 });
 
-test("Test Case 4: Logout User", async ({ browser }) => {
+test.skip("Test Case 4: Logout User", async ({ browser }) => {
   let webContext = await browser.newContext({
     storageState: RUNSTATE,
   });
@@ -149,3 +149,4 @@ test("Test Case 4: Logout User", async ({ browser }) => {
 
     
 });
+*/

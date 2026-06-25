@@ -7,7 +7,7 @@ import userJson from "../data/user1.json";
 const user: UserData = userJson as unknown as UserData;
 
 const RUNSTATE: string = "state.json";
-/*
+
 test.describe.configure({ mode: "serial" });
 
 test("Test Case 1: Register User", async ({ browser }) => {
@@ -22,7 +22,7 @@ test("Test Case 1: Register User", async ({ browser }) => {
   await registerNewUser.createAccount(user);
 });
 
-test("Test Case 1: Delete User", async ({ browser }) => {
+test("Test Case 2: Delete User", async ({ browser }) => {
   let webContext = await browser.newContext({
     storageState: RUNSTATE,
   });
@@ -31,6 +31,5 @@ test("Test Case 1: Delete User", async ({ browser }) => {
   await homePage.gotoHomePage();
   const signin = await homePage.gotoSignInLogin();
   await signin.signInUser(user);
-  homePage.deleteUser();  
+  await homePage.deleteUser();  
 });
-*/

@@ -1,8 +1,6 @@
 import { expect, Page } from "@playwright/test";
 import { RegisterNewUser } from "./RegisterNewUser";
-import {UserData} from "./Data";
-
-
+import { UserData } from "./Data";
 
 export class SignupLogin {
   page: Page;
@@ -26,6 +24,25 @@ export class SignupLogin {
     //Click 'Signup' button
     await this.page.getByRole("button").getByText("Signup").click();
 
-    return new RegisterNewUser(this.page)
+    return new RegisterNewUser(this.page);
+  }
+
+  async signInUser(user: UserData) {
+    await expect(
+      this.page.getByRole("heading").filter({
+        hasText: "Login to your account",
+      }),
+    ).toBeVisible();
+
+    await this.page.getByTestId("login-email").fill(user.email);
+    await this.page.getByTestId("login-password").fill(user.password);
+
+    //7. Click 'login' button
+    await this.page
+      .getByRole("button")
+      .filter({
+        hasText: "Login",
+      })
+      .click();
   }
 }

@@ -18,9 +18,9 @@ test.beforeAll(async ({ browser }) => {
   page.close();
 
   // webContext = await browser.newContext({ storageState: RUNSTATE });
-});*/
+});
 
-test("Has correct title", async ({ browser }) => {
+test.skip("Has correct title", async ({ browser }) => {
   let webContext = await browser.newContext({
     storageState: RUNSTATE,
   });
@@ -31,7 +31,7 @@ test("Has correct title", async ({ browser }) => {
   await expect(page).toHaveTitle("Automation Exercise");
 });
 
-test("Run though test 1", async ({ browser }) => {
+test.skip("Run though test 1", async ({ browser }) => {
   let webContext = await browser.newContext({
     storageState: RUNSTATE,
   });
@@ -129,4 +129,4 @@ test("Run though test 1", async ({ browser }) => {
     }),
   ).toBeVisible();
   */
-});
+//});

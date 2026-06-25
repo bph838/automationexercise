@@ -39,4 +39,18 @@ export class HomePage {
 
     return new SignupLogin(this.page);
   }
+
+  async deleteUser() {
+    await this.page.waitForSelector('a[href="/delete_account"]', {
+      state: "visible",
+    });
+
+    await this.page.getByRole("link").getByText("Delete Account").click();
+
+    await expect(
+      this.page.getByRole("heading").filter({
+        hasText: "ACCOUNT DELETED!",
+      }),
+    ).toBeVisible();
+  }
 }

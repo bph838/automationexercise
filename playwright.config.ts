@@ -14,14 +14,14 @@ const ONE_SECOND = 1000;
  */
 export default defineConfig({
   testDir: "./tests",
-  /* Run tests in files in parallel */
-  fullyParallel: true,
+  /* Run test files in declared order rather than in parallel, since some specs depend on shared state. */
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  /* Single worker so test files run sequentially in the order listed below. */
+  workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "html",
 
