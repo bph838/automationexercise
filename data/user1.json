@@ -1,0 +1,16 @@
+{
+  "title": "Mr",
+  "firstName": "Ben",
+  "lastName": "Hooper",
+  "email": "benjaminpaulhooper@gmail.com",
+  "mobile": "07515657533",
+  "password": "Pa$$word11",
+  "dob": "4/2/1974",
+  "address": {
+    "country": "United States",
+    "address1": "13 Station Road",
+    "state": "North Somerset",
+    "city": "Backwell",
+    "zipcode": "BS48 3NW"
+  }
+}
